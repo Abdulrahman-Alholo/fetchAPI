@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+let url = 'https://fakestoreapi.com/products';
+
+
+        //fetch(url)
+        //.then(res => res.json())
+        //.then((data) => console.log(data)) 
+        //.catch((err) => console.log(err));
+
+        const body = {
+            
+    title: "Focal X agency",
+    price: 110.95,
+    description: "Mohammed Nour Khattab is a prfect coach",
+    category: "Front-end developer",
+    image: "https://cdn.uarizonabootcamp.com/wp-content/uploads/sites/56/2020/05/front-end-developer-skills-850x412.jpg",
+    rating: {
+      rate: 5,
+      count: 125
+        }
+    }
+
+     //// Adding Product  ///
+    fetch(url,
+    {
+        method : 'POST',
+        body : JSON.stringify(body)
+
+    })
+    .then((res) => res.json())
+    .then((data) => console.log(data))
+    .catch((err) => console.log(err));
+
+    const bodyPut = {
+            
+            title: "Focal X agency",
+            price: 110.95,
+            description: "Mohammed Nour Khattab is a prfect coach",
+            category: "Front-end developer",
+            image: "https://cdn.uarizonabootcamp.com/wp-content/uploads/sites/56/2020/05/front-end-developer-skills-850x412.jpg",
+    }      
+    
+    ////////  Updating the Product /////
+    let id = 7;
+      
+    fetch(url+'/'+id,
+    {
+        method : 'PATCH',
+        body : JSON.stringify(bodyPut)
+
+    })
+    .then((res) => res.json())
+    .then((data) => console.log(data))
+    .catch((err) => console.log(err));
+
+    /// Deleting a product ///
+
+    fetch(url+'/'+id,
+    {
+        method : 'DELETE',
+
+    })
+    .then((res) => res.json())
+    .then((data) => console.log(data))
+    .catch((err) => console.log(err));
+
+
+
+   
+
+    </script>
+</body>
+</html>
